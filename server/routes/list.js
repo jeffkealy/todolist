@@ -6,7 +6,7 @@ var connectionString = 'postgres://localhost:5432/todoapp';
 //POST the tasks to database
 router.post('/', function(req, res) {
   var newTask = req.body;
-  console.log(newTask);
+  //console.log(newTask);
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log('connection error: ', err);
@@ -41,14 +41,14 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     }
 
-    client.query('SELECT * FROM tasklist', function(err, result) {
+    client.query('SELECT * FROM tasklist ORDER BY id DESC', function(err, result) {
       done();
 
       if(err) {
         console.log('select query error: ', err);
         res.sendStatus(500);
       }
-      console.log("results.rows", result.rows);
+      //console.log("results.rows", result.rows);
       res.send(result.rows);
 
     });
@@ -104,12 +104,13 @@ router.put('/:id', function(req, res) {
           console.log('update error: ', err);
           res.sendStatus(500);
         } else {
-
+          console.log("[taskID]", taskID);
           res.sendStatus(200);
         }
       });
     }); // close connect
 
 });
+
 
 module.exports = router;

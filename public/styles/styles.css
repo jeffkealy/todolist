@@ -6,9 +6,16 @@ h1 {
 h2 {
   color: gray;
 }
+h3 {
+  margin: inherit;
+}
 
 .individualTask {
-  border: 1px solid magenta;
+  border: 2px solid rgba(82, 88, 84, 0.26);
   margin-bottom: 12px;
   padding: 10px;
+  border-radius: 15px;
+}
+button {
+  margin-right: 2px;  
 }
