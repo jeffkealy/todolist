@@ -1,10 +1,11 @@
 h1 {
-  font-family: 'Taviraj', serif;
+  font-family: 'Roboto', sans-serif;
   color: indigo;
 }
 
 h2 {
   color: gray;
+
 }
 h3 {
   margin: inherit;
@@ -17,5 +18,5 @@ h3 {
   border-radius: 15px;
 }
 button {
-  margin-right: 2px;  
+  margin-right: 2px;
 }

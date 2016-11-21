@@ -41,7 +41,7 @@ router.get('/', function(req, res) {
       res.sendStatus(500);
     }
 
-    client.query('SELECT * FROM tasklist ORDER BY id DESC', function(err, result) {
+    client.query('SELECT * FROM tasklist ORDER BY completed ASC, id DESC', function(err, result) {
       done();
 
       if(err) {
@@ -96,7 +96,7 @@ router.put('/:id', function(req, res) {
     }
 
     client.query(
-      'UPDATE tasklist SET completed=NOT completed WHERE id=$1',
+      'UPDATE tasklist SET completed=NOT completed WHERE id=$1 ',
       // array of values to use in the query above
       [taskID],
       function(err, result) {
